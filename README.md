@@ -1,1 +1,1 @@
-# A simple chat web with react & firebase
+# A simple web chat with react & firebase
