@@ -28,6 +28,7 @@ const analytics = firebase.analytics();
 function App() {
 
   const [user] = useAuthState(auth);
+  
 
   return (
     <div className="App">
@@ -48,13 +49,37 @@ function SignIn() {
 
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
+    // auth.signInAnonymously()
+    // .then(() => {
+    //   // Signed in..
+    // })
+    // .catch((error) => {
+    //   var errorCode = error.code;
+    //   var errorMessage = error.message;
+    //   console.log(errorMessage);
+    //   // ...
+    // });
     auth.signInWithPopup(provider);
   }
+
+  const signInAnonymously = () => {
+
+    auth.signInAnonymously()
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorMessage);
+      // ...
+    });
+  }
+
+
 
   return (
     <div className='loginSection'>
       <h1>Registrate con Google</h1>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <button className="sign-in2" onClick={signInAnonymously}>Sign in Anonymously</button>
     </div>
   )
 
