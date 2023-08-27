@@ -5,12 +5,19 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/analytics';
+import sendIcon from '../src/img/3669251_send_ic_icon.png'
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
-  // your config
+  apiKey: "AIzaSyBsyd2eSWrnlhe0TLfIH8niIyN6x6SE0rs",
+  authDomain: "hola-b4980.firebaseapp.com",
+  databaseURL: "https://hola-b4980.firebaseio.com",
+  projectId: "hola-b4980",
+  storageBucket: "hola-b4980.appspot.com",
+  messagingSenderId: "832267029617",
+  appId: "1:832267029617:web:ac4ec8dae5c78adf575fd0",
 })
 
 const auth = firebase.auth();
@@ -25,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>⚛️🔥💬</h1>
+        <h1 className='title'>Chat Web</h1>
         <SignOut />
       </header>
 
@@ -45,10 +52,10 @@ function SignIn() {
   }
 
   return (
-    <>
+    <div className='loginSection'>
+      <h1>Registrate con Google</h1>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the community guidelines or you will be banned for life!</p>
-    </>
+    </div>
   )
 
 }
@@ -97,9 +104,9 @@ function ChatRoom() {
 
     <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Escribe lo que quieras!!" />
 
-      <button type="submit" disabled={!formValue}>🕊️</button>
+      <button type="submit" disabled={!formValue}><img src={sendIcon} alt="" /></button>
 
     </form>
   </>)

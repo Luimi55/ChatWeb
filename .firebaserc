@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "fireship-demos"
-  }
+    "default": "hola-b4980",
+    "chat": "hola-b4980"
+  },
+  "targets": {},
+  "etags": {}
 }
